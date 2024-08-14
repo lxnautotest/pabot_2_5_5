@@ -468,6 +468,7 @@ def _run(command, stderr, stdout, item_name, verbose, pool_id, item_index):
     # type: (List[str], IO[Any], IO[Any], str, bool, int, int) -> Tuple[Union[subprocess.Popen[bytes], subprocess.Popen], Tuple[int, float]]
     timestamp = datetime.datetime.now()
     cmd = " ".join(command)
+    cmd = "Xvfb-run --auto-servernum --server-args=\"-screen 0 1920x1080x24 -ac\" " + cmd
     if PY2:
         cmd = cmd.decode("utf-8").encode(SYSTEM_ENCODING)
     # avoid hitting https://bugs.python.org/issue10394
