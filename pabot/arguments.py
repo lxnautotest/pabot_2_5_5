@@ -64,7 +64,8 @@ def _parse_shard(arg):
 
 def _parse_pabot_args(args):  # type: (List[str]) -> Tuple[List[str], Dict[str, object]]
     pabot_args = {
-        "command": ["Xvfb-run --auto-servernum --server-args=\"-screen 0 1920x1080x24 -ac\" pybot" if ROBOT_VERSION < "3.1" else "Xvfb-run --auto-servernum --server-args=\"-screen 0 1920x1080x24 -ac\" robot"],
+        "command": ["pybot" if ROBOT_VERSION < "3.1" else "robot"],
+        # "command": ["Xvfb-run --auto-servernum --server-args=\"-screen 0 1920x1080x24 -ac\" pybot" if ROBOT_VERSION < "3.1" else "Xvfb-run --auto-servernum --server-args=\"-screen 0 1920x1080x24 -ac\" robot"],
         "verbose": False,
         "help": False,
         "testlevelsplit": False,
